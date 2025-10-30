@@ -1,3 +1,4 @@
+/*------------------------Header------------------------------*/
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -46,4 +47,71 @@
 .header-options button:focus {
     outline: none;
     border-color: #999999;
+}
+
+/*------------------------AddBook------------------------------*/
+.addbook-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 32px 48px;
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    border: 1px solid #e5e5e5;
+}
+
+.addbook-container h2 {
+    margin: 0 0 28px 0;
+    font-size: 26px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.addbook-container form {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+}
+
+.addbook-container input[type="text"] {
+    flex: 1;
+    padding: 16px 20px;
+    font-size: 17px;
+    border: 2px solid #d1d5db;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    transition: all 0.2s ease;
+}
+
+.addbook-container input[type="text"]::placeholder {
+    color: #9ca3af;
+    font-size: 17px;
+}
+
+.addbook-container input[type="text"]:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.addbook-container button {
+    padding: 16px 48px;
+    font-size: 17px;
+    font-weight: 600;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.addbook-container button:hover {
+    background-color: #1d4ed8;
+}
+
+.addbook-container button:active {
+    transform: scale(0.98);
 }

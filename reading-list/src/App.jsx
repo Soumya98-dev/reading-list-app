@@ -6,8 +6,11 @@ import BookList from "./components/BookList.jsx";
 import StatsSidebar from "./components/StatsSidebar.jsx";
 import QuickActions from "./components/QuickActions.jsx";
 import TagsCloud from "./components/TagsCloud.jsx";
+import {useState} from "react";
 
 function App(){
+  const [bookDetails, setBookDetails] = new useState([]);
+
   return(
       <div className={'app-container'}>
         <Header/>
