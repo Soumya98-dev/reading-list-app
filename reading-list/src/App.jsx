@@ -9,17 +9,23 @@ import TagsCloud from "./components/TagsCloud.jsx";
 import {useState} from "react";
 
 function App(){
-  const [bookDetails, setBookDetails] = new useState([]);
+  const [bookDetails, setBookDetails] = useState([]);
 
   return(
       <div className={'app-container'}>
         <Header/>
-        <AddBook/>
-        <SearchTagFilter/>
-        <BookList/>
-        <StatsSidebar/>
-        <QuickActions/>
-        <TagsCloud/>
+        <div className={'app-main-layout'}>
+          <div className={'app-left-column'}>
+            <AddBook/>
+            <SearchTagFilter/>
+            <BookList/>
+          </div>
+          <div className={'app-right-column'}>
+            <StatsSidebar/>
+            <QuickActions/>
+            <TagsCloud/>
+          </div>
+        </div>
       </div>
   )
 }
