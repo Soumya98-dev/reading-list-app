@@ -9,14 +9,19 @@ import TagsCloud from "./components/TagsCloud.jsx";
 import {useState} from "react";
 
 function App(){
+  //STATE FOR LIST OF BOOKS (TITLE & AUTHOR)
   const [bookDetails, setBookDetails] = useState([]);
+
+  const addBook = (newBook) => {
+    setBookDetails([...bookDetails, newBook]);
+  }
 
   return(
       <div className={'app-container'}>
         <Header/>
         <div className={'app-main-layout'}>
           <div className={'app-left-column'}>
-            <AddBook/>
+            <AddBook addBook={addBook}/>
             <SearchTagFilter/>
             <BookList/>
           </div>
