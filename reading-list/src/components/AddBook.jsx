@@ -1,6 +1,15 @@
 import '../App.css';
 
-function AddBook(){
+function AddBook({addBook}){
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newBook = {
+
+    }
+  }
+
   return(
       <div className={'addbook-container'}>
         <h2>Add a new book</h2>
