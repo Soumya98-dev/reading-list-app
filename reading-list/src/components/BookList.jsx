@@ -1,7 +1,15 @@
 import '../App.css';
+import {useState} from "react";
 
-function BookList({bookDetails}){
-  return(
+function BookList({bookDetails}) {
+  const [isEditing, setIsEditing] = useState(null);
+
+  const handleEdit = (id) => {
+    setIsEditing(id);
+    setIsEditing(isEditing === id ? null : id);
+  }
+
+  return (
       <div className={'booklist-container'}>
         <div className={'booklist-header'}>
           <h2>Your books</h2>
@@ -17,14 +25,33 @@ function BookList({bookDetails}){
           </select>
         </div>
         {bookDetails.map((book) => (
-            <div key={book.id} className={'booklist-maincontent'}>
-              <input type={"checkbox"}/>
-              <h2>{book.title}</h2>
-              <p>{book.author} . {book.tag}</p>
-              <button>Mark as read</button>
-              <button>Edit</button>
-              <button>Delete</button>
-            </div>
+            isEditing === book.id ? (
+                // EDIT VIEW
+                <div key={book.id} className={'booklist-maincontent-editdialog'}>
+                  <input type={"text"} defaultValue={book.title}/>
+                  <input type={"text"} defaultValue={book.author}/>
+                  <select defaultValue={book.tag}>
+                    <option>Fiction</option>
+                    <option>Non-fiction</option>
+                    <option>Tech</option>
+                    <option>Biography</option>
+                    <option>Sci-fi</option>
+                    <option>Self-help</option>
+                  </select>
+                  <button>Save</button>
+                  <button onClick={() => setIsEditing(null)}>Cancel</button>
+                </div>
+            ) : (
+                // NORMAL VIEW
+                <div key={book.id} className={'booklist-maincontent'}>
+                  <input type={"checkbox"}/>
+                  <h2>{book.title}</h2>
+                  <p>{book.author} . {book.tag}</p>
+                  <button>Mark as read</button>
+                  <button onClick={() => handleEdit(book.id)}>Edit</button>
+                  <button>Delete</button>
+                </div>
+                )
         ))}
         <div className={'booklist-footercontent'}>
           <p>Showing 1-10 of 42</p>

@@ -441,6 +441,146 @@ body {
     box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
 }
 
+/* Edit Dialog */
+.booklist-maincontent-editdialog {
+    padding: 32px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid #3b82f6;
+    border-radius: 16px;
+    margin: 20px 0;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.25);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    animation: slideIn 0.3s ease;
+    position: relative;
+}
+
+.booklist-maincontent-editdialog::before {
+    content: '✏️ Edit Book';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.booklist-maincontent-editdialog input,
+.booklist-maincontent-editdialog input[type="text"],
+.booklist-maincontent-editdialog select {
+    padding: 15px 20px;
+    font-size: 15px;
+    border: 2px solid #cbd5e0;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #1a202c;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.booklist-maincontent-editdialog input,
+.booklist-maincontent-editdialog input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+.booklist-maincontent-editdialog input:first-child,
+.booklist-maincontent-editdialog input[type="text"]:first-child {
+    flex: 1 1 100%;
+    width: 100%;
+}
+
+.booklist-maincontent-editdialog select {
+    flex: 0 1 auto;
+    min-width: 150px;
+}
+
+.booklist-maincontent-editdialog input:hover,
+.booklist-maincontent-editdialog input[type="text"]:hover,
+.booklist-maincontent-editdialog select:hover {
+    border-color: #94a3b8;
+    background-color: #fafbfc;
+}
+
+.booklist-maincontent-editdialog input:focus,
+.booklist-maincontent-editdialog input[type="text"]:focus,
+.booklist-maincontent-editdialog select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booklist-maincontent-editdialog select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath fill='%234a5568' d='M7 10L2 5h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 50px;
+}
+
+.booklist-maincontent-editdialog button {
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    flex: 0 1 auto;
+    margin-left: auto;
+}
+
+.booklist-maincontent-editdialog button:first-of-type {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+}
+
+.booklist-maincontent-editdialog button:first-of-type:hover {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+}
+
+.booklist-maincontent-editdialog button:last-of-type {
+    background-color: #ffffff;
+    color: #4a5568;
+    border: 2px solid #cbd5e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-left: 10px;
+}
+
+.booklist-maincontent-editdialog button:last-of-type:hover {
+    border-color: #64748b;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    color: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.booklist-maincontent-editdialog button:active {
+    transform: translateY(0);
+}
+
 /* Footer Section */
 .booklist-footercontent {
     display: flex;
@@ -845,6 +985,51 @@ body {
 
     .booklist-maincontent button:last-of-type {
         margin-bottom: 0;
+    }
+
+    /* Edit Dialog Mobile */
+    .booklist-maincontent-editdialog {
+        padding: 28px 20px;
+        flex-direction: column;
+        gap: 14px;
+        margin: 12px 0;
+    }
+
+    .booklist-maincontent-editdialog::before {
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .booklist-maincontent-editdialog input,
+    .booklist-maincontent-editdialog input[type="text"],
+    .booklist-maincontent-editdialog select {
+        width: 100%;
+        min-width: 100%;
+        padding: 16px 18px;
+        font-size: 16px;
+    }
+
+    .booklist-maincontent-editdialog input:first-child,
+    .booklist-maincontent-editdialog input[type="text"]:first-child {
+        flex: none;
+        width: 100%;
+    }
+
+    .booklist-maincontent-editdialog select {
+        flex: none;
+        width: 100%;
+    }
+
+    .booklist-maincontent-editdialog button {
+        width: 100%;
+        padding: 16px 24px;
+        font-size: 16px;
+        margin-left: 0;
+    }
+
+    .booklist-maincontent-editdialog button:last-of-type {
+        margin-left: 0;
     }
 
     .booklist-footercontent {
