@@ -1,6 +1,6 @@
 import '../App.css';
 
-function BookList(){
+function BookList({bookDetails}){
   return(
       <div className={'booklist-container'}>
         <div className={'booklist-header'}>
@@ -16,14 +16,16 @@ function BookList(){
             <option>ROws: 50</option>
           </select>
         </div>
-        <div className={'booklist-maincontent'}>
-          <input type={"checkbox"}/>
-          <h2>The Pragmatic Programmer</h2>
-          <p>Andrew Hunt, David Thomas • Tech</p>
-          <button>Mark as read</button>
-          <button>Edit</button>
-          <button>Delete</button>
-        </div>
+        {bookDetails.map((book) => (
+            <div key={book.id} className={'booklist-maincontent'}>
+              <input type={"checkbox"}/>
+              <h2>{book.title}</h2>
+              <p>{book.author} . {book.tag}</p>
+              <button>Mark as read</button>
+              <button>Edit</button>
+              <button>Delete</button>
+            </div>
+        ))}
         <div className={'booklist-footercontent'}>
           <p>Showing 1-10 of 42</p>
           <button>Prev</button>

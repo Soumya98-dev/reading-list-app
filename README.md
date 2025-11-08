@@ -4,7 +4,7 @@
 >
 > This is an active project I'm building to practice my full-stack development skills. The front-end UI is built, and I am currently working on the back-end API and database.
 
-![img.png](img.png)
+![img_2.png](img_2.png)
 
 ## About This Project
 

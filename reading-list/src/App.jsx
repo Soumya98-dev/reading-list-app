@@ -23,7 +23,7 @@ function App(){
           <div className={'app-left-column'}>
             <AddBook addBook={addBook}/>
             <SearchTagFilter/>
-            <BookList/>
+            <BookList bookDetails={bookDetails}/>
           </div>
           <div className={'app-right-column'}>
             <StatsSidebar/>
