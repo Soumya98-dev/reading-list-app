@@ -25,6 +25,37 @@ This project is being built with the **PERN stack**:
 * **Back-End (In Progress):** Currently developing the REST API with Express.js.
 * **Database (Planned):** Schemas for PostgreSQL are being designed.
 
+## Feature Tracker
+
+### Completed
+- Add new book (title, author, genre)
+- Edit book details
+- Front-end UI design (React + Vite)
+- Dark mode toggle(Based on System Preference)
+
+---
+
+### In Progress
+- Search by title or author
+- Sort books (recently added)
+- Pagination (Prev / Next)
+- Book stats (Total, Read, Completion %)
+- Tag filters (Fiction, Non-fiction, Tech)
+- Delete Book
+- Mark as read / unread
+- Export to CSV
+- Backend API (Express.js)
+
+---
+
+### Planned
+- Import from CSV
+- Clear all / Clear read buttons (functionality)
+- PostgreSQL database schema
+- Responsive / Mobile layout
+- User authentication (optional)
+
+
 ## How to Run the Front-End
 
 You can run the front-end locally to see the UI.
