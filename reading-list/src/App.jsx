@@ -16,6 +16,10 @@ function App(){
     setBookDetails([...bookDetails, newBook]);
   }
 
+  const editBook = (id, updatedBook) => {
+    setBookDetails(bookDetails.map(b => b.id === id ? updatedBook : b));
+  }
+
   return(
       <div className={'app-container'}>
         <Header/>
@@ -23,7 +27,7 @@ function App(){
           <div className={'app-left-column'}>
             <AddBook addBook={addBook}/>
             <SearchTagFilter/>
-            <BookList bookDetails={bookDetails}/>
+            <BookList bookDetails={bookDetails} editBook={editBook}/>
           </div>
           <div className={'app-right-column'}>
             <StatsSidebar/>

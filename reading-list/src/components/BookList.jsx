@@ -1,12 +1,30 @@
 import '../App.css';
-import {useState} from "react";
+import {use, useState} from "react";
 
-function BookList({bookDetails}) {
+function BookList({bookDetails, editBook}) {
   const [isEditing, setIsEditing] = useState(null);
 
+  //STATE FOR EDITED BOOK DETAILS
+  const [editedTitle, setEditedTitle] = useState('');
+  const [editedAuthor, setEditedAuthor] = useState('');
+  const [editedTag, setEditedTag] = useState('');
+
+  //TO SHOW THE EDIT DIALOG OR NOT
   const handleEdit = (id) => {
-    setIsEditing(id);
+    const bookToEdit = bookDetails.find(b => b.id === id);
+    setEditedTitle(bookToEdit.title);
+    setEditedAuthor(bookToEdit.author);
+    setEditedTag(bookToEdit.tag);
     setIsEditing(isEditing === id ? null : id);
+  }
+
+  const onSaveEdit = (e, id) => {
+    e.preventDefault();
+    editBook(id, {title: editedTitle, author: editedAuthor, tag: editedTag});
+    setEditedTitle('');
+    setEditedAuthor('');
+    setEditedTag('');
+    setIsEditing(null);
   }
 
   return (
@@ -28,18 +46,20 @@ function BookList({bookDetails}) {
             isEditing === book.id ? (
                 // EDIT VIEW
                 <div key={book.id} className={'booklist-maincontent-editdialog'}>
-                  <input type={"text"} defaultValue={book.title}/>
-                  <input type={"text"} defaultValue={book.author}/>
-                  <select defaultValue={book.tag}>
-                    <option>Fiction</option>
-                    <option>Non-fiction</option>
-                    <option>Tech</option>
-                    <option>Biography</option>
-                    <option>Sci-fi</option>
-                    <option>Self-help</option>
-                  </select>
-                  <button>Save</button>
-                  <button onClick={() => setIsEditing(null)}>Cancel</button>
+                  <form onSubmit={(e) => onSaveEdit(e,book.id)}>
+                    <input type={"text"} value={editedTitle} onChange={(e) => setEditedTitle(e.target.value)}/>
+                    <input type={"text"} value={editedAuthor} onChange={(e) => setEditedAuthor(e.target.value)}/>
+                    <select value={editedTag} onChange={(e) => setEditedTag(e.target.value)}>
+                      <option>Fiction</option>
+                      <option>Non-fiction</option>
+                      <option>Tech</option>
+                      <option>Biography</option>
+                      <option>Sci-fi</option>
+                      <option>Self-help</option>
+                    </select>
+                    <button type={"submit"}>Save</button>
+                    <button onClick={() => setIsEditing(null)} type={"button"}>Cancel</button>
+                  </form>
                 </div>
             ) : (
                 // NORMAL VIEW
